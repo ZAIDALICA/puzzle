@@ -13,4 +13,10 @@ jobs:
         with:
           name: output-log-file
           path: output.log
-    
+      - name: Build and Push Docker Image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: zaidalica/first-repository  # i pasted that from dockerUp 
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
